@@ -2,6 +2,28 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Nutrition } from '../interface/nutrition.interface';
 
+/**
+ * Servicio para gestionar operaciones relacionadas con planes de nutrición.
+ *
+ * @remarks
+ * Este servicio proporciona métodos para obtener, crear, actualizar y eliminar
+ * planes de nutrición. Actualmente implementa datos mock, pero está preparado
+ * para integrarse con una API REST.
+ *
+ * Se registra como singleton en el inyector raíz de Angular, permitiendo
+ * compartir la misma instancia en toda la aplicación.
+ *
+ * @example
+ * ```ts
+ * constructor(private nutritionService: NutritionService) {}
+ *
+ * ngOnInit() {
+ *   this.nutritionService.getAllNutrition().subscribe(plans => {
+ *     console.log('Planes de nutrición:', plans);
+ *   });
+ * }
+ * ```
+ */
 @Injectable({
   providedIn: 'root',
 })
