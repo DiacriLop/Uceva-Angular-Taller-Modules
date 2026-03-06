@@ -1,1 +1,32 @@
-<p>table-workout works!</p>
+<table class="table table-striped border">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Tipo</th>
+			<th scope="col">Duración (min)</th>
+			<th scope="col">Dificultad</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (workout of workouts; track workout) {
+			<tr>
+				<th scope="row">{{ workout.id }}</th>
+				<td>{{ workout.name }}</td>
+				<td>
+					<app-badge
+						[text]="workout.type"
+						[type]="typeMap[workout.type]" >
+					</app-badge>
+				</td>
+				<td>{{ workout.duration }}</td>
+				<td>
+					<app-badge
+						[text]="workout.difficulty"
+						[type]="difficultyMap[workout.difficulty]" >
+					</app-badge>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
