@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
+import { WORKOUTS } from '../../../../core/config/workout.config';
 import { TableWorkoutComponent } from './table-workout';
 
 describe('TableWorkoutComponent', () => {
@@ -14,10 +15,37 @@ describe('TableWorkoutComponent', () => {
 
     fixture = TestBed.createComponent(TableWorkoutComponent);
     component = fixture.componentInstance;
+    component.workouts = WORKOUTS;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('debería renderizar una tabla', () => {
+    const table = fixture.debugElement.query(By.css('table'));
+    expect(table).toBeTruthy();
+  });
+    it('debería renderizar una fila por cada workout', () => {
+    const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
+    expect(rows.length).toBe(component.workouts.length);
+  });
+  
+  it('debería mostrar los datos del workout en cada columna', () => {
+    const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
+    rows.forEach((row, index) => {
+      const columns = row.queryAll(By.css('th, td'));
+      const workout = component.workouts[index];
+
+      expect(columns[0].nativeElement.textContent.trim()).toBe(String(workout.id));
+      expect(columns[1].nativeElement.textContent.trim()).toBe(workout.name);
+      expect(columns[2].nativeElement.textContent.trim()).toBe(String(workout.duration));
+    });
+  });
+
+  
 });
+
+
+
