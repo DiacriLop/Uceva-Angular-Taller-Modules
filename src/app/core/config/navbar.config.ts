@@ -17,4 +17,5 @@ export const NAVBAR_ITEMS: NavbarItem[] = [
     { label: 'Usuarios', url: '/users' },
     { label: 'Productos', url: '/products' },
     { label: 'Entrenamientos', url: '/workout' },
+    { label: 'Nutrición', url: '/nutrition' },
 ] 

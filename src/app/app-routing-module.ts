@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/workout/workout-module').then(m => m.WorkoutModule)
   },
   {
+    path: 'nutrition',
+    loadChildren: () => import('./modules/nutrition/nutrition-module').then(m => m.NutritionModule)
+  },
+  {
     path: '**',
     redirectTo: 'users'
   },

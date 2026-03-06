@@ -1,0 +1,29 @@
+<table class="table table-striped border">
+<thead>
+    <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Nombre Plan</th>
+    <th scope="col">Tipo</th>
+    <th scope="col">Calorías Diarias</th>
+    <th scope="col">Duración (semanas)</th>
+    <th scope="col">Recomendado Para</th>
+    </tr>
+</thead>
+<tbody>
+    @for (plan of nutrition; track plan.id) {
+    <tr>
+    <th scope="row">{{ plan.id }}</th>
+    <td>{{ plan.nombrePlan }}</td>
+    <td>
+        <app-badge
+        [text]="plan.tipo"
+        [type]="typeMap[plan.tipo]">
+        </app-badge>
+    </td>
+    <td>{{ plan.caloriasDiarias }}</td>
+    <td>{{ plan.duracionSemanas }}</td>
+    <td>{{ plan.recomendadoPara }}</td>
+    </tr>
+    }
+</tbody>
+</table>
