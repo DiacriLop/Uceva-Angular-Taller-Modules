@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/products/products-module').then(m => m.ProductsModule)
   },
   {
+    path: 'workout',
+    loadChildren: () => import('./modules/workout/workout-module').then(m => m.WorkoutModule)
+  },
+  {
     path: '**',
     redirectTo: 'users'
   },
